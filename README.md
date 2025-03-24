@@ -1,2 +1,26 @@
-# Mini-Shell
-A custom shell (msh) in C supporting command execution, environment variables, job control, and signal handling. It features a dynamic prompt (PS1), process management, special shell variables ($?, $$, $SHELL), and job control (fg, bg, jobs). Signal handling ensures Ctrl+C terminates only the foreground process, while Ctrl+Z suspends it.
+# Mini Shell (msh)
+
+A custom shell (msh) implemented in C, supporting command execution, environment variable handling, job control, and signal handling.
+
+## Features
+
+### Customizable Prompt (PS1)
+Users can modify the prompt dynamically using `PS1=NEW_PROMPT` while maintaining syntax validation.
+
+### Process Management
+Supports executing external commands by creating child processes, ensuring proper synchronization.
+
+### Shell Variables
+Implements special variables like:
+- `echo $?` → Displays exit status of the last command
+- `echo $$` → Prints the shell’s PID
+- `echo $SHELL` → Displays the shell’s executable path
+
+### Job Control
+- `fg` → Bring a background job to the foreground
+- `bg` → Resume a suspended job in the background
+- `jobs` → List background and stopped jobs with their PIDs
+
+### Signal Handling
+- `Ctrl+C (SIGINT)` → Terminates the foreground process but keeps the shell running
+- `Ctrl+Z (SIGTSTP)` → Suspends the foreground process and displays its PID
